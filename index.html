@@ -343,6 +343,7 @@
   </section>
 
   <!-- الفيديوهات -->
+  <!-- الفيديوهات -->
   <section id="videos" class="section" style="background:#fff;border-top:1px solid var(--border)">
     <div class="container">
       <div class="mb-8">
@@ -350,22 +351,23 @@
         <p class="text-muted mt-2">شاهد فرضية الإخلاء وطريقة استخدام طفايات الحريق.</p>
       </div>
 
-      <!-- جعل الفيديوهات تحت بعض -->
-      <div class="grid">
+      <div class="grid grid-lg-2" style="gap:24px">
+        <!-- فيديو الإخلاء (ملف محلي evacuation.mp4) -->
         <article>
-          <h3 class="mb-3">مقطع فيديو فرضية الإخلاء</h3>
-          <div class="aspect-video card" style="padding:0">
-            <video id="evacVideo" controls preload="metadata" style="display:block;width:100%;height:100%">
+          <h3 class="mb-3" style="margin-bottom:12px">مقطع فيديو فرضية الإخلاء</h3>
+          <div class="aspect-video border">
+            <video id="evacVideo" controls preload="metadata">
               <source src="evacuation.mp4" type="video/mp4" />
               متصفحك لا يدعم تشغيل الفيديو.
             </video>
           </div>
         </article>
 
+        <!-- فيديو الطفايات (ملف محلي fire-ext.mp4) -->
         <article>
-          <h3 class="mb-3">مقطع شرح طفايات الحريق</h3>
-          <div class="aspect-video card" style="padding:0">
-            <video id="extVideo" controls preload="metadata" style="display:block;width:100%;height:100%">
+          <h3 class="mb-3" style="margin-bottom:12px">مقطع شرح طفايات الحريق</h3>
+          <div class="aspect-video border">
+            <video id="extVideo" controls preload="metadata">
               <source src="fire-ext.mp4" type="video/mp4" />
               متصفحك لا يدعم تشغيل الفيديو.
             </video>
