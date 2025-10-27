@@ -5,104 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الكلية التقنية بالزلفي | وحدة الصحة والسلامة المهنية</title>
   <meta name="description" content="وحدة الصحة والسلامة المهنية داخل مرافق الكلية التقنية بالزلفي: الرؤية والرسالة، تعليمات السلامة، المخاطر العامة، والفيديوهات التوعوية.">
-
-  <!-- Bootstrap Icons (للأيقونات فقط) -->
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- ===== CSS بديل عن Tailwind ===== -->
   <style>
     :root{
-      --primary:#0ea5e9;
-      --primary-dark:#0369a1;
-      --accent:#22c55e;
-      --bg:#f9fafb;
-      --text:#111827;
-      --muted:#6b7280;
-      --border:#e5e7eb;
-      --white:#ffffff;
-      --red:#ef4444;
-      --red-dark:#dc2626;
-      --emerald:#10b981;
-      --emerald-dark:#059669;
+      --primary:#0ea5e9; --primary-dark:#0369a1;
+      --bg:#f9fafb; --text:#111827; --muted:#6b7280; --border:#e5e7eb; --white:#ffffff;
+      --red:#ef4444; --red-dark:#dc2626; --amber:#f59e0b; --violet:#7c3aed;
+      --emerald:#10b981; --emerald-dark:#059669; --indigo:#4f46e5; --rose:#e11d48;
       --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.03);
       --shadow-lg:0 10px 15px rgba(0,0,0,.07),0 4px 6px rgba(0,0,0,.05);
-      --radius:16px;
+      --radius:18px;
     }
 
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,"Apple Color Emoji","Segoe UI Emoji";line-height:1.6}
     .no-scroll{overflow:hidden}
-
-    /* Helpers */
     .container{max-width:1100px;margin-inline:auto;padding-inline:16px}
-    .hidden{display:none}
-    .rounded-xl{border-radius:20px}
-    .rounded-2xl{border-radius:24px}
-    .rounded-lg{border-radius:12px}
-    .rounded-full{border-radius:999px}
-    .border{border:1px solid var(--border)}
-    .shadow-sm{box-shadow:var(--shadow)}
-    .shadow-lg{box-shadow:var(--shadow-lg)}
-    .text-muted{color:var(--muted)}
-    .text-primary{color:var(--primary)}
-    .underline{text-decoration:underline}
-    .w-full{width:100%}
-    .h-auto{height:auto}
 
     /* Topbar */
     header.topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:8px;font-weight:800;color:inherit;text-decoration:none}
-    /* ✅ تكبير الشعار ليظهر بصورة واضحة بدون نص */
+    .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit}
     .brand img{height:48px;width:auto;border-radius:8px;object-fit:contain}
-    .menu-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px;border-radius:12px;border:0;background:transparent;cursor:pointer}
-    .menu-btn:hover{background:#f3f4f6}
-
-    /* Desktop menu */
-    .menu{display:none;align-items:center;gap:16px}
-    .menu a{font-size:15px;color:inherit;text-decoration:none}
-    .menu a:hover{color:var(--primary)}
 
     /* Buttons */
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;font-weight:600;transition:.2s;border:0;cursor:pointer;outline:none}
-    .btn:focus{box-shadow:0 0 0 3px rgba(14,165,233,.3),0 0 0 6px rgba(255,255,255,1)}
-    .btn:disabled{opacity:.6;cursor:not-allowed}
-    .btn-primary{background:var(--primary);color:#fff}
-    .btn-primary:hover{background:var(--primary-dark)}
-    .btn-ghost{background:#fff;border:1px solid #d1d5db}
-    .btn-ghost:hover{background:#f3f4f6}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;font-weight:700;transition:.2s;border:0;cursor:pointer;outline:none}
+    .btn:focus-visible{box-shadow:0 0 0 3px rgba(14,165,233,.35)}
+    .btn-sm{height:40px;padding-inline:12px;font-size:14px}
     .btn-danger{background:var(--red);color:#fff}
     .btn-danger:hover{background:var(--red-dark)}
-    .btn-success{background:var(--emerald);color:#fff}
-    .btn-success:hover{background:var(--emerald-dark)}
-    .btn-sm{height:40px;padding-inline:12px;font-size:14px}
-    .btn-md{height:44px;padding-inline:16px;font-size:15px}
-
-    /* 🔧 إزالة الخط السفلي من أزرار الروابط */
-    .btn, .btn:link, .btn:visited, a.btn, a.btn:link, a.btn:visited { text-decoration:none !important; }
-    .btn:hover, .btn:focus, a.btn:hover, a.btn:focus { text-decoration:none !important; }
-    .btn-ghost { text-decoration:none !important; }
-    .btn * { text-decoration:none !important; }
-
-    /* Mobile menu */
-    .mobile-menu{border-top:1px solid var(--border)}
-    .mobile-menu ul{padding:12px 16px}
-    .mobile-menu a{display:block;text-decoration:none;color:inherit;padding:6px 0}
-    .mobile-menu a:hover{color:var(--primary)}
-    .mobile-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 
     /* Sections */
     section{scroll-margin-top:80px}
     .section{padding:56px 0}
+    .hero{position:relative}
+    .py-hero{padding-block:56px}
 
-    /* Hero */
-    .hero{position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,#f0f9ff,#fff);pointer-events:none}
-    .hero .inner{position:relative}
-
-    /* Layout grids */
+    /* Generic cards */
     .grid{display:grid;gap:24px}
+    .grid-2{grid-template-columns:1fr 1fr}
     .card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
+
+    /* Action cards */
+    .actions{margin-top:20px}
+    .action-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .action-card{
+      position:relative;display:flex;align-items:flex-start;gap:12px;padding:16px;border-radius:var(--radius);
+      border:1px solid var(--border);background:#fff;box-shadow:var(--shadow);
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      color:inherit;text-decoration:none;
+    }
+    .action-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:#dbe1ea}
+    .action-card:focus-visible{outline:2px solid rgba(14,165,233,.35);outline-offset:2px}
+
+    /* Icon badge */
+    .icon-badge{
+      flex:0 0 auto;display:inline-grid;place-items:center;width:40px;height:40px;border-radius:999px;background:#fff;border:1px solid var(--border);
+      box-shadow:0 1px 2px rgba(0,0,0,.05)
+    }
+    .icon-badge i{font-size:20px}
+
+    .action-title{font-size:16px;margin:0 0 4px;font-weight:900}
+    .action-desc{margin:0;color:#4b5563;font-size:14px;line-height:1.5}
+
+    /* Remove underline inside cards */
+    a.action-card, a.action-card *{text-decoration:none}
+    a.action-card:visited{color:inherit}
+
+    /* Soft color themes */
+    .c-sky{background:linear-gradient(180deg,#f0f9ff,#fff)}
+    .c-sky .icon-badge i{color:#0ea5e9}
+    .c-amber{background:linear-gradient(180deg,#fffbeb,#fff)}
+    .c-amber .icon-badge i{color:#f59e0b}
+    .c-emerald{background:linear-gradient(180deg,#ecfdf5,#fff)}
+    .c-emerald .icon-badge i{color:#10b981}
+    .c-indigo{background:linear-gradient(180deg,#eef2ff,#fff)}
+    .c-indigo .icon-badge i{color:#4f46e5}
+    .c-violet{background:linear-gradient(180deg,#f5f3ff,#fff)}
+    .c-violet .icon-badge i{color:#7c3aed}
+    .c-rose{background:linear-gradient(180deg,#fff1f2,#fff)}
+    .c-rose .icon-badge i{color:#e11d48}
+
+    /* Featured report card */
+    .action-featured{border:2px solid var(--red);background:linear-gradient(180deg,#ffe4e6,#fff)}
+    .action-featured .icon-badge{border-color:#fecaca;background:#fff5f5}
+    .action-featured .icon-badge i{color:var(--red)}
+    .pill{position:absolute;top:10px;left:10px;font-size:11px;padding:4px 8px;border-radius:999px;color:#fff;background:var(--red-dark)}
 
     /* Typography */
     h1{margin:0 0 8px;font-size:28px;font-weight:900;line-height:1.2}
@@ -110,14 +100,13 @@
     h3{margin:0 0 6px;font-size:18px;font-weight:800}
     p{margin:0}
     .lead{margin-top:12px;font-size:18px;color:#374151}
-    .mt-2{margin-top:8px}
-    .mt-3{margin-top:12px}
-    .mt-4{margin-top:16px}
-    .mt-5{margin-top:20px}
-    .mt-6{margin-top:24px}
+    .text-muted{color:var(--muted)}
+    .mb-3{margin-bottom:12px}
     .mb-5{margin-bottom:20px}
     .mb-6{margin-bottom:24px}
     .mb-8{margin-bottom:32px}
+    .mt-4{margin-top:16px}
+    .mt-6{margin-top:24px}
 
     /* Lists */
     ol.decimal{list-style:decimal;padding-right:22px;color:#1f2937}
@@ -131,13 +120,36 @@
     footer{border-top:1px solid var(--border);background:var(--bg)}
     .footer-wrap{padding:40px 0;color:#6b7280;font-size:14px;text-align:center;font-weight:800}
 
-    /* FABs */
+    /* FAB (يسار) */
     .fab{width:48px;height:48px}
     .fab-md{width:56px;height:56px}
     .fab-wrap{position:fixed;bottom:16px;left:16px;display:flex;flex-direction:column;gap:12px;z-index:50}
     .fab-btn{display:flex;align-items:center;justify-content:center;border-radius:999px;color:#fff;box-shadow:var(--shadow-lg);text-decoration:none}
     .fab-red{background:var(--red)} .fab-red:hover{background:var(--red-dark)}
     .fab-sky{background:#0ea5e9} .fab-sky:hover{background:#0284c7}
+
+    /* Right FAB (scroll to top) */
+.fab-right {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 50;
+}
+
+/* جعل الزر شفاف */
+.fab-gray {
+  background: transparent; /* 🔸 شفافية كاملة */
+  color: #111827;          /* 🔸 لون الأيقونة (السهم) */
+  border: 1px solid #ddd;  /* 🔸 اختياري - إطار خفيف حول الزر */
+}
+
+.fab-gray:hover {
+  background: rgba(0, 0, 0, 0.05); /* 🔸 شفافية خفيفة عند مرور الماوس */
+}
+
 
     /* Modal */
     .modal{position:fixed;inset:0;z-index:50;display:none}
@@ -156,22 +168,12 @@
     .map-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:8px}
     .map-card img{display:block;width:100%;height:auto;border-radius:16px}
 
-    /* Spacing wrappers */
-    .py-hero{padding-block:56px}
-
     /* Responsive */
     @media (min-width:768px){
       h1{font-size:36px}
       h2{font-size:28px}
-      .menu{display:flex}
-      .menu-btn{display:none}
-      .btn-sm{height:44px;padding-inline:16px;font-size:15px}
-      .btn-md{height:48px;padding-inline:18px;font-size:16px}
-      .grid-lg-2{grid-template-columns:1fr 1fr}
-      .fab{width:56px;height:56px}
-      .fab-md{width:60px;height:60px}
+      .grid-2{display:grid}
     }
-
     @media (min-width:1024px){
       h1{font-size:44px}
       .py-hero{padding-block:80px}
@@ -179,78 +181,103 @@
   </style>
 </head>
 <body>
-  <!-- شريط علوي -->
+  <!-- الهيدر -->
   <header class="topbar">
     <nav class="container nav">
       <a href="#home" class="brand">
-        <!-- شعار من الجذر (صورة فقط بدون نص) -->
         <img src="logo1.png" alt="شعار الكلية التقنية بالزلفي" />
-        <!-- تمت إزالة النص التالي حسب طلبك:
-        <span>الكلية التقنية بالزلفي | وحدة الصحة والسلامة المهنية</span>
-        -->
       </a>
-
-      <button id="menuBtn" class="menu-btn" aria-label="فتح القائمة" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-
-      <ul id="menuList" class="menu">
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#vision">الرؤية والرسالة</a></li>
-        <li><a href="#guidelines">تعليمات السلامة</a></li>
-        <li><a href="#hazards">المخاطر العامة</a></li>
-        <li><a href="#videos">الفيديوهات</a></li>
-        <li><a href="#map">نقطة التجمع</a></li>
-        <li style="display:flex;align-items:center;gap:8px">
-          <button id="reportOpen" class="btn btn-danger btn-sm">الإبلاغ</button>
-          <button id="surveyOpen" class="btn btn-success btn-sm">قياس الرضا</button>
-        </li>
-      </ul>
+      <button id="reportOpen" class="btn btn-danger btn-sm">الإبلاغ الآن</button>
     </nav>
-
-    <!-- قائمة الجوال -->
-    <div id="mobileMenu" class="mobile-menu hidden">
-      <ul>
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#vision">الرؤية والرسالة</a></li>
-        <li><a href="#guidelines">تعليمات السلامة</a></li>
-        <li><a href="#hazards">المخاطر العامة</a></li>
-        <li><a href="#videos">الفيديوهات</a></li>
-        <li><a href="#map">نقطة التجمع</a></li>
-        <li class="mobile-grid">
-          <button id="reportOpenMobile" class="btn btn-danger btn-sm">الإبلاغ</button>
-          <button id="surveyOpenMobile" class="btn btn-success btn-sm">الرضا</button>
-        </li>
-      </ul>
-    </div>
   </header>
 
   <!-- البطل -->
   <section id="home" class="hero">
-    <div class="container py-hero inner">
-      <div class="grid grid-lg-2">
+    <div class="container py-hero">
+      <div class="grid" style="grid-template-columns:1fr; gap:24px">
         <div>
           <h1>وحدة الصحة والسلامة المهنية</h1>
           <p class="lead">نهدف لبيئة تدريبية آمنة وصحية تعزز جودة التدريب، مع نشر الوعي وتطبيق معايير السلامة لحماية الأرواح والممتلكات.</p>
-          <div class="mt-6" style="display:flex;flex-wrap:wrap;gap:10px">
-            <a href="#guidelines" class="btn btn-primary btn-sm">اطلع على التعليمات</a>
-            <a href="#videos" class="btn btn-ghost btn-sm">شاهد الفيديوهات</a>
-            <button id="reportOpenHero" class="btn btn-danger btn-sm">الإبلاغ الآن</button>
-            <button id="surveyOpenHero" class="btn btn-success btn-sm">قياس الرضا عن فاعلية الصحة والسلامة</button>
+
+          <!-- بطاقات الإجراءات -->
+          <div class="actions mt-6">
+            <div class="action-grid">
+              <!-- التعليمات -->
+              <a class="action-card c-sky" href="#guidelines" aria-label="اطلع على التعليمات">
+                <span class="icon-badge"><i class="bi bi-journal-check" aria-hidden="true"></i></span>
+                <div>
+                  <h4 class="action-title">اطلع على التعليمات</h4>
+                  <p class="action-desc">إرشادات السلامة الأساسية لجميع المنسوبين والمتدربين.</p>
+                </div>
+              </a>
+
+              <!-- الفيديوهات -->
+              <a class="action-card c-amber" href="#videos" aria-label="شاهد الفيديوهات">
+                <span class="icon-badge"><i class="bi bi-play-btn-fill" aria-hidden="true"></i></span>
+                <div>
+                  <h4 class="action-title">شاهد الفيديوهات</h4>
+                  <p class="action-desc">فرضية الإخلاء وطريقة استخدام طفايات الحريق.</p>
+                </div>
+              </a>
+
+              <!-- خريطة نقاط التجمع -->
+              <button id="goToMapCard" class="action-card c-indigo" type="button" aria-label="اطلع على موقع نقاط التجمع">
+                <span class="icon-badge"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></span>
+                <div>
+                  <h4 class="action-title">اطلع على موقع نقاط التجمع لكل مبنى</h4>
+                  <p class="action-desc">تعرف على أقرب نقطة تجمع لمسارك أثناء الإخلاء.</p>
+                </div>
+              </button>
+
+              <!-- قياس الرضا (داخل الصفحة) -->
+              <button class="action-card c-emerald" type="button" data-open="survey" aria-label="قياس الرضا عن فاعلية الصحة والسلامة">
+                <span class="icon-badge"><i class="bi bi-clipboard-check" aria-hidden="true"></i></span>
+                <div>
+                  <h4 class="action-title">قياس الرضا عن فاعلية الصحة والسلامة</h4>
+                  <p class="action-desc">أخبرنا بتجربتك لتحسين خدمات السلامة.</p>
+                </div>
+              </button>
+
+              <!-- طلب تعزيز صندوق الإسعافات الأولية (داخل المودال) -->
+              <button class="action-card c-violet" type="button" data-open="firstaid" aria-label="طلب تعزيز صندوق الإسعافات الأولية">
+                <span class="icon-badge"><i class="bi bi-bandaid-fill" aria-hidden="true"></i></span>
+                <div>
+                  <h4 class="action-title">طلب تعزيز صندوق الإسعافات الأولية</h4>
+                  <p class="action-desc">اطلب إضافة مستلزمات أو إعادة تعبئة للصندوق.</p>
+                </div>
+              </button>
+
+              <!-- الإفصاح عن الحالات المرضية (داخل المودال) -->
+              <button class="action-card c-rose" type="button" data-open="medical" aria-label="الإفصاح عن الحالات المرضية لتقديم الرعاية الصحية">
+                <span class="icon-badge"><i class="bi bi-heart-pulse-fill" aria-hidden="true"></i></span>
+                <div>
+                  <h4 class="action-title">الإفصاح عن الحالات المرضية لتقديم الرعاية الصحية</h4>
+                  <p class="action-desc">سري ومخصص لإدارة السلامة (تُحفظ البيانات بسرّية).</p>
+                </div>
+              </button>
+
+              <!-- الإبلاغ عن خطر / ملاحظة (مميز) -->
+              <button class="action-card action-featured" type="button" data-open="report" aria-label="الإبلاغ عن خطر أو ملاحظة">
+                <span class="icon-badge"><i class="bi bi-exclamation-octagon-fill" aria-hidden="true"></i></span>
+                <div>
+                  <h4 class="action-title">الإبلاغ عن خطر / ملاحظة</h4>
+                  <p class="action-desc">أبلغ فوراً ليتم التعامل مع الحالة بشكل عاجل.</p>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
+
+        <!-- نبذة سريعة -->
         <div>
           <div class="card">
-            <h2 class="mb-3" style="margin-bottom:12px">نبذة سريعة</h2>
+            <h2 class="mb-3">نبذة سريعة</h2>
             <ul class="text-muted" style="margin:0;padding:0;list-style:none">
               <li>⚠️ الالتزام بمخارج الطوارئ ومسارات الإخلاء.</li>
               <li>🧯 التعرّف على مواقع طفايات الحريق وأنواعها.</li>
               <li>🧪 اتباع إرشادات المعامل ولبس أدوات الوقاية.</li>
               <li>📱 الإبلاغ عن أي خطر مباشرة من خلال النموذج.</li>
             </ul>
-            <div class="mt-4">
-              <button id="scrollToMap" class="text-primary" >تعرف على موقع نقاط التجمع لكل مبنى</button>
-            </div>
           </div>
         </div>
       </div>
@@ -260,7 +287,7 @@
   <!-- الرؤية والرسالة -->
   <section id="vision" class="section">
     <div class="container">
-      <div class="grid grid-lg-2">
+      <div class="grid grid-2">
         <div class="card">
           <h3>الرؤية</h3>
           <p class="text-muted">بيئة تدريبية آمنة وصحية تعزز جودة التدريب.</p>
@@ -273,7 +300,7 @@
     </div>
   </section>
 
-  <!-- تعليمات السلامة -->
+  <!-- تعليمات -->
   <section id="guidelines" class="section">
     <div class="container">
       <div class="mb-6">
@@ -294,7 +321,7 @@
     </div>
   </section>
 
-  <!-- المخاطر العامة -->
+  <!-- المخاطر -->
   <section id="hazards" class="section">
     <div class="container">
       <div class="mb-6">
@@ -323,23 +350,22 @@
         <p class="text-muted mt-2">شاهد فرضية الإخلاء وطريقة استخدام طفايات الحريق.</p>
       </div>
 
-      <div class="grid grid-lg-2" style="gap:24px">
-        <!-- فيديو الإخلاء (ملف محلي evacuation.mp4) -->
+      <!-- جعل الفيديوهات تحت بعض -->
+      <div class="grid">
         <article>
-          <h3 class="mb-3" style="margin-bottom:12px">مقطع فيديو فرضية الإخلاء</h3>
-          <div class="aspect-video border">
-            <video id="evacVideo" controls preload="metadata">
+          <h3 class="mb-3">مقطع فيديو فرضية الإخلاء</h3>
+          <div class="aspect-video card" style="padding:0">
+            <video id="evacVideo" controls preload="metadata" style="display:block;width:100%;height:100%">
               <source src="evacuation.mp4" type="video/mp4" />
               متصفحك لا يدعم تشغيل الفيديو.
             </video>
           </div>
         </article>
 
-        <!-- فيديو الطفايات (ملف محلي fire-ext.mp4) -->
         <article>
-          <h3 class="mb-3" style="margin-bottom:12px">مقطع شرح طفايات الحريق</h3>
-          <div class="aspect-video border">
-            <video id="extVideo" controls preload="metadata">
+          <h3 class="mb-3">مقطع شرح طفايات الحريق</h3>
+          <div class="aspect-video card" style="padding:0">
+            <video id="extVideo" controls preload="metadata" style="display:block;width:100%;height:100%">
               <source src="fire-ext.mp4" type="video/mp4" />
               متصفحك لا يدعم تشغيل الفيديو.
             </video>
@@ -354,33 +380,34 @@
     <div class="container">
       <div class="mb-5">
         <h2>خريطة نقاط التجمع لكل مبنى</h2>
-         <p class="text-muted mt-2">يجب على جميع شاغلي المبنى التوجه إلى نقطة التجمع الخاصة بالمبنى فور صدور إنذار الإخلاء، والبقاء في الموقع حتى يتم التأكد من سلامة الجميع وإعطاء الإشارة بالعودة.</p>
-
+        <p class="text-muted mt-2">يجب على جميع شاغلي المبنى التوجه إلى نقطة التجمع الخاصة بالمبنى فور صدور إنذار الإخلاء، والبقاء في الموقع حتى يتم التأكد من سلامة الجميع وإعطاء الإشارة بالعودة.</p>
       </div>
       <div class="map-card">
-        <!-- صورة من الجذر -->
-        <img src="tgmo3.png"
-             alt="صورة موقع نقطة التجمع في الكلية التقنية بالزلفي" class="w-full h-auto" />
+        <img src="tgmo3.png" alt="صورة موقع نقطة التجمع في الكلية التقنية بالزلفي" />
       </div>
     </div>
   </section>
 
-  <!-- تذييل مبسّط (بدون روابط) -->
+  <!-- تذييل -->
   <footer>
-    <div class="container footer-wrap">
-      وحدة الصحة والسلامة المهنية | الكلية التقنية بالزلفي
-    </div>
+    <div class="container footer-wrap">وحدة الصحة والسلامة المهنية | الكلية التقنية بالزلفي</div>
   </footer>
 
-  <!-- شريط عائم يسار: (1) إبلاغ (2) تواصل -->
+  <!-- أزرار عائمة يسار -->
   <div class="fab-wrap">
     <button id="reportFab" class="fab fab-md fab-btn fab-red" aria-label="الإبلاغ عن خطر أو ملاحظة">
       <i class="bi bi-exclamation-triangle-fill" style="font-size:22px" aria-hidden="true"></i>
     </button>
-
     <a href="https://t.me/Rakkan445" target="_blank" rel="noopener" class="fab fab-md fab-btn fab-sky" aria-label="التواصل عبر تيليجرام مع مشرف الصحة والسلامة">
       <i class="bi bi-telegram" style="font-size:22px" aria-hidden="true"></i>
     </a>
+  </div>
+
+  <!-- زر سهم يمين للرجوع للأعلى -->
+  <div class="fab-right">
+    <button id="scrollTopBtn" class="fab fab-md fab-btn fab-gray" aria-label="العودة لبداية الصفحة">
+      <i class="bi bi-arrow-up" style="font-size:22px" aria-hidden="true"></i>
+    </button>
   </div>
 
   <!-- نافذة النماذج -->
@@ -403,84 +430,90 @@
 
   <!-- سكربتات -->
   <script>
-    // عناصر DOM
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    const yearSpan = document.getElementById('year'); // لم يعد موجوداً، فنتحقق قبل الاستخدام
-    const scrollToMapBtn = document.getElementById('scrollToMap');
-
-    // أزرار فتح النماذج (الإبلاغ)
+    /*** عناصر التحكم العامة ***/
+    // أزرار فتح نموذج "الإبلاغ الآن" (من الهيدر والزر العائم)
     const reportBtns = [
       document.getElementById('reportOpen'),
-      document.getElementById('reportOpenMobile'),
-      document.getElementById('reportOpenHero'),
       document.getElementById('reportFab')
     ].filter(Boolean);
 
-    // أزرار فتح النماذج (الاستبيان)
-    const surveyBtns = [
-      document.getElementById('surveyOpen'),
-      document.getElementById('surveyOpenMobile'),
-      document.getElementById('surveyOpenHero')
-    ].filter(Boolean);
-
-    const formsModal = document.getElementById('formsModal');
-    const formsFrame = document.getElementById('formsFrame');
-    const formsTitle = document.getElementById('formsTitle');
-    const formsClose = document.getElementById('formsClose');
+    // مراجع المودال وإطاره وعناصره
+    const formsModal    = document.getElementById('formsModal');
+    const formsFrame    = document.getElementById('formsFrame');
+    const formsTitle    = document.getElementById('formsTitle');
+    const formsClose    = document.getElementById('formsClose');
     const modalBackdrop = document.getElementById('modalBackdrop');
 
-    // روابط Microsoft Forms (مع embed=true)
+    /*** روابط النماذج ***/
+    // REPORT_FORM_URL: رابط نموذج "الإبلاغ عن خطر/ملاحظة" (Microsoft Forms) ويُفتح داخل المودال
     const REPORT_FORM_URL = 'https://forms.office.com/r/y96mzu8PC1?embed=true';
+
+    // SURVEY_FORM_URL: رابط نموذج "قياس الرضا عن فاعلية الصحة والسلامة" ويُفتح داخل المودال
     const SURVEY_FORM_URL = 'https://forms.office.com/Pages/ResponsePage.aspx?id=t2SN3tp5mEGAwnuENDSDTyUK3_RQ8oVKhhYrxW-BQsFUNk9DV0QwNjRXUkNISFpHTUo3TFhVVDkzRy4u';
 
-    // قائمة الجوال
-    menuBtn?.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden', !isHidden);
-      menuBtn.setAttribute('aria-expanded', String(isHidden));
-    });
+    // FIRSTAID_FORM_URL: رابط نموذج "طلب تعزيز صندوق الإسعافات الأولية" (حسب طلبك:) ويُفتح داخل المودال
+    const FIRSTAID_FORM_URL = 'https://forms.office.com/Pages/ResponsePage.aspx?id=t2SN3tp5mEGAwnuENDSDTyUK3_RQ8oVKhhYrxW-BQsFUNFRCUFhYTE5LUDA1UTJSQVFOU1FFRDhHNC4u';
 
-    // فتح النافذة مع تحديد النموذج
+    // MEDICAL_FORM_URL: رابط نموذج "الإفصاح عن الحالات المرضية لتقديم الرعاية الصحية" (حاليًا:) ويُفتح داخل المودال
+    const MEDICAL_FORM_URL  = 'https://forms.office.com/Pages/ResponsePage.aspx?id=t2SN3tp5mEGAwnuENDSDTyUK3_RQ8oVKhhYrxW-BQsFUODdHSzRDV1Y1TElGQlRFWUZLM05aQ1FWTi4u';
+
+    // خريطة تربط نوع الزر (data-open) بعنوان النموذج والرابط الخاص به
+    const FORM_MAP = {
+      report:   { url: REPORT_FORM_URL,   title: 'نموذج الإبلاغ عن خطر/ملاحظة' },
+      survey:   { url: SURVEY_FORM_URL,   title: 'قياس الرضا عن فاعلية الصحة والسلامة' },
+      firstaid: { url: FIRSTAID_FORM_URL, title: 'طلب تعزيز صندوق الإسعافات الأولية' },
+      medical:  { url: MEDICAL_FORM_URL,  title: 'الإفصاح عن الحالات المرضية لتقديم الرعاية الصحية' },
+    };
+
+    /*** دوال فتح/إغلاق المودال ***/
     function openFormsModal(type) {
-      const url = type === 'survey' ? SURVEY_FORM_URL : REPORT_FORM_URL;
-      formsFrame.setAttribute('src', url);
-      formsTitle.textContent = type === 'survey' ? 'قياس الرضا عن فاعلية الصحة والسلامة' : 'نموذج الإبلاغ عن خطر/ملاحظة';
+      const cfg = FORM_MAP[type] || FORM_MAP.report;
+      formsFrame.setAttribute('src', cfg.url);
+      formsTitle.textContent = cfg.title;
       formsModal.classList.add('show');
       document.body.classList.add('no-scroll');
       formsModal.setAttribute('aria-hidden', 'false');
       formsClose?.focus();
     }
 
-    // إغلاق النافذة
     function closeFormsModal() {
       formsModal.classList.remove('show');
       document.body.classList.remove('no-scroll');
       formsModal.setAttribute('aria-hidden', 'true');
+      // نفرغ src لإيقاف التحميل/التشغيل
       formsFrame.setAttribute('src', '');
     }
 
-    // ربط الأزرار
+    /*** الربط بالأزرار ***/
+    // زرّي الإبلاغ المباشر (الهيدر + العائم)
     reportBtns.forEach(btn => btn?.addEventListener('click', () => openFormsModal('report')));
-    surveyBtns.forEach(btn => btn?.addEventListener('click', () => openFormsModal('survey')));
 
-    formsClose?.addEventListener('click', closeFormsModal);
-    modalBackdrop?.addEventListener('click', closeFormsModal);
-
-    // إغلاق بـ Esc
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && formsModal.classList.contains('show')) {
-        closeFormsModal();
-      }
+    // أي عنصر يحمل data-open (مثل survey / report / firstaid / medical) يفتح المودال بالرابط الموافق
+    document.querySelectorAll('[data-open]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        // لو كان العنصر <a> برابط، نمنع فتح التبويب ونستخدم المودال
+        if (el.tagName.toLowerCase() === 'a') e.preventDefault();
+        const type = el.getAttribute('data-open');
+        openFormsModal(type);
+      });
     });
 
-    // سنة تلقائية (في حال وُجد العنصر)
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    // إغلاق المودال
+    formsClose?.addEventListener('click', closeFormsModal);
+    modalBackdrop?.addEventListener('click', closeFormsModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && formsModal.classList.contains('show')) closeFormsModal();
+    });
 
-    // تمرير لقسم الخريطة
-    scrollToMapBtn?.addEventListener('click', () => {
+    /*** أزرار التنقّل داخل الصفحة ***/
+    // تمرير لقسم الخريطة من بطاقة "نقاط التجمع"
+    document.getElementById('goToMapCard')?.addEventListener('click', () => {
       document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // زر الرجوع للأعلى (السهم يمين)
+    document.getElementById('scrollTopBtn')?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
